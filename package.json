@@ -5,15 +5,27 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index"
+    "dev": "babel-node src/index",
+    "build": "babel src -d dist",
+    "start": "node dist/index"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0"
+  },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "express-session": "^1.14.2",
     "giphy-api": "^1.2.1",
     "http": "^0.0.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
     "twilio": "^2.11.1"
   }
 }
