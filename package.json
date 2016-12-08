@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "babel-node src/index",
+    "dev": "devtool -r babel-register --no-sm src/index.js",
     "build": "babel src -d dist",
     "start": "node dist/index"
   },
@@ -15,8 +15,14 @@
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-regenerator": "^6.16.1",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
-    "babel-preset-react": "^6.16.0"
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "supertest": "^2.0.1"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -25,7 +31,9 @@
     "giphy-api": "^1.2.1",
     "http": "^0.0.0",
     "react": "^15.4.1",
+    "react-async-child": "^0.0.1",
     "react-dom": "^15.4.1",
+    "react-resolver": "^3.1.0",
     "twilio": "^2.11.1"
   }
 }
