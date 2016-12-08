@@ -1,18 +1,20 @@
-# react-twiml [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
+# 🕹📞📟 react-twiml [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
 Render [Twilio Markup Language](https://www.twilio.com/docs/api/twiml) instructions from [React](https://facebook.github.io/react/).
 
 Useful for SMS and Voice automation via [Twilio webhooks](https://www.twilio.com/docs/api/ip-messaging/webhooks).
 
+👉  You can play with the [Giphy game example](./examples/GiphyGame.js) by sending an SMS to `+33644640807`
+
 ## Ideas
 
-With Twilio API, you can automate voice calls and SMS via webhooks and [TwiML](https://www.twilio.com/docs/api/twiml).
+With [Twilio](http://twilio.com), you can automate voice calls and SMS answers via webhooks and [TwiML](https://www.twilio.com/docs/api/twiml).
 
-Twilio can leverage [HTTP sessions](https://support.twilio.com/hc/en-us/articles/223136287-How-do-Twilio-cookies-work-) to save the "application" state.
+Also, Twilio can leverage [HTTP sessions](https://support.twilio.com/hc/en-us/articles/223136287-How-do-Twilio-cookies-work-) to save the "application" state.
 
-Experiment : use React to modelize the "UI" (Voice and SMS interactions) and use HTTP sessions to keep the state and rehydrate components if needed (webhooks are stateless).
+Experiment : use React to modelize the "UI" (Voice and SMS interactions) and use HTTP sessions to keep the state and rehydrate components when needed (webhooks are stateless).
 
-This allow to create simple to more complex scenarios using your favorite paradigm.
+This allows to create simple to more complex scenarios using your favorite paradigm.
 
 ## Usage
 
@@ -35,12 +37,10 @@ See also [./examples](./examples)
 
 The [Giphy game example](./examples/GiphyGame.js) shows how to handle a multi-step scenario
 
-You can play the giphy game by sending an SMS to +33644640807
-
 ### Async
 
-When rendering on the server, we cant rely on `setState`;
+When rendering on the server, we cant rely on `setState` because we need a single, full render of the final state.
 
-We need to delay the component render using a Promise. (see the [GiphyGame example](./examples/GiphyGame))
+Thus, we need to delay the component render (see the [Giphy game example](./examples/GiphyGame)).
 
 

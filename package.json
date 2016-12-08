@@ -10,6 +10,11 @@
     "build-examples": "./node_modules/.bin/webpack --config ./examples/webpack.config.js",
     "start": "node dist/index"
   },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
   "keywords": [
     "react",
     "twilio",
