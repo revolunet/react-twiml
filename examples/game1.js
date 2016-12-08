@@ -1,3 +1,7 @@
+
+/* TODO : OUTDATED EXAMPLE */
+
+
 var React = require('react');
 
 

@@ -1,11 +1,12 @@
 {
-  "name": "webhook-twilio-test",
+  "name": "react-twiml",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Render Twilio Markup Language instructions from React",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "devtool -r babel-register --no-sm src/index.js",
+    "dev": "babel-node examples/server.js",
+    "test": "babel-node test/index.js",
     "build": "babel src -d dist",
     "start": "node dist/index"
   },
