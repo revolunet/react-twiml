@@ -35,6 +35,8 @@ See also [./examples](./examples)
 
 The [Giphy game example](./examples/GiphyGame.js) shows how to handle a multi-step scenario
 
+You can play the giphy game by sending an SMS to +33644640807
+
 ### Async
 
 When rendering on the server, we cant rely on `setState`;
