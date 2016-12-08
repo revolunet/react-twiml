@@ -4,29 +4,39 @@
   "description": "Render Twilio Markup Language instructions from React",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "babel-node examples/server.js",
     "test": "babel-node test/index.js",
+    "dev": "babel-node examples/server.js",
     "build": "babel src -d dist",
+    "build-examples": "./node_modules/.bin/webpack --config ./examples/webpack.config.js",
     "start": "node dist/index"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "react",
+    "twilio",
+    "voice",
+    "sms"
+  ],
+  "author": "Julien Bouquillon <julien@revolunet.com>",
+  "license": "MIT",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
+    "babel-loader": "^6.2.9",
     "babel-polyfill": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
-    "supertest": "^2.0.1"
-  },
-  "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "giphy-api": "^1.2.1",
     "http": "^0.0.0",
+    "json-loader": "^0.5.4",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "supertest": "^2.0.1",
+    "webpack": "^1.14.0"
+  },
+  "peerDependencies": {
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   }

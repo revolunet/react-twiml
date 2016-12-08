@@ -21,7 +21,6 @@ app.use(session({ secret: 'moefhzieyfgI764765dalkjfal)àihazafzAZAEFEZF' }));
 
 app.use(bodyParser.urlencoded({ extended: false } ));
 
-
 /* Simple voice webhook */
 
 const SimpleVoice = ({ code }) => (

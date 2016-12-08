@@ -1,16 +1,18 @@
 # react-twiml [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-Render [Twilio Markup Language](https://www.twilio.com/docs/api/twiml) instructions from [React](https://facebook.github.io/react/)
+Render [Twilio Markup Language](https://www.twilio.com/docs/api/twiml) instructions from [React](https://facebook.github.io/react/).
 
-Useful for SMS and Voice automation via [Twilio webhooks](https://www.twilio.com/docs/api/ip-messaging/webhooks)
+Useful for SMS and Voice automation via [Twilio webhooks](https://www.twilio.com/docs/api/ip-messaging/webhooks).
 
 ## Ideas
 
-With Twilio API, you can automate voice calls and SMS via webhooks.
+With Twilio API, you can automate voice calls and SMS via webhooks and [TwiML](https://www.twilio.com/docs/api/twiml).
 
-We can use an express.js server to handle these requests and render react components;
+Twilio can leverage [HTTP sessions](https://support.twilio.com/hc/en-us/articles/223136287-How-do-Twilio-cookies-work-) to save the "application" state.
 
-We can leverage [HTTP sessions](https://support.twilio.com/hc/en-us/articles/223136287-How-do-Twilio-cookies-work-) to save the "application" state
+Experiment : use React to modelize the "UI" (Voice and SMS interactions) and use HTTP sessions to keep the state and rehydrate components if needed (webhooks are stateless).
+
+This allow to create simple to more complex scenarios using your favorite paradigm.
 
 ## Usage
 
@@ -24,18 +26,19 @@ const SimpleVoice = ({ code }) => (
   </Response>
 )
 
-app.post('/webhook', render(SimpleVoice, {
+app.post('/webhook', (req, res) => render(SimpleVoice, {
   code: 42
-}))
-
+})
 ```
 
 See also [./examples](./examples)
+
+The [Giphy game example](./examples/GiphyGame.js) shows how to handle a multi-step scenario
 
 ### Async
 
 When rendering on the server, we cant rely on `setState`;
 
-Here, we use a promise to delay the component render. (see the [GiphyGame example](./examples/GiphyGame))
+We need to delay the component render using a Promise. (see the [GiphyGame example](./examples/GiphyGame))
 
 

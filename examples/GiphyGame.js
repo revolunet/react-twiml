@@ -7,6 +7,8 @@ const GIPHY_WORDS = ["happy", "crazy", "hot", "fun", "silly"]
 
 const getRandomWord = () => GIPHY_WORDS[Math.floor(Math.random() * GIPHY_WORDS.length)];
 
+const MAX_TRIES = 3
+
 // fetch giphy data if needed
 export const getGiphyData = (state) => {
   return new Promise((resolve, reject) => {
@@ -34,25 +36,25 @@ export const GiphyGame = ({ text, state, save }) => {
         <Message>Welcome to the game ! Guess that image keyword : { state.url }</Message>
       </Response>
     )
-  } else if (state.tries >= 5) {
+  } else if (state.tries >= MAX_TRIES) {
     save()
     return (
       <Response>
-        <Message>LOST ! 5 tries</Message>
+        <Message>LOST ! { MAX_TRIES } tries</Message>
       </Response>
     )
   } else if (text && text.toLowerCase() === state.word.toLowerCase()) {
     save()
     return (
       <Response>
-        <Message>Win in { state.tries } - BRAVO ! づ｡◕‿‿◕｡)づ</Message>
+        <Message>Win in { state.tries + 1 } - BRAVO ! づ｡◕‿‿◕｡)づ</Message>
       </Response>
     )
   } else {
     incrementTries();
     return (
       <Response>
-        <Message>Try again ({ state.tries + 1 } / 5) ! ¯\_(ツ)_/¯ </Message>
+        <Message>Try again ({ state.tries + 1 } / { MAX_TRIES }) ! ¯\_(ツ)_/¯ </Message>
       </Response>
     )
   }
