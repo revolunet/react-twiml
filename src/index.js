@@ -139,9 +139,8 @@ const MessageGame1 = props => {
 /* ------------------------------------------------------ */
 
 
-import { Resolver, resolve } from 'react-resolver';
-
 app.post('/smsgame2', function(req, res) {
+  console.log('>smsgame2')
   res.writeHead(200, {'Content-Type': 'text/xml'});
   getTwilioXML(GiphyGame, {
     text: req.body.Body
@@ -155,25 +154,24 @@ const getRandomWord = () => GIPHY_WORDS[Math.floor(Math.random() * GIPHY_WORDS.l
 
 const GiphyGame = ({ text, session, save }) => {
   const incrementTries = () => {
-    const giphyData = Object.assign({}, session, { tries: (session.tries + 1) })
-    save(giphyData)
+    const sessionData = Object.assign({}, session, { tries: (session.tries + 1) })
+    save(sessionData)
   }
   if (session.tries === -1) {
     incrementTries()
     return (
       <Response>
-        <Message>Welcome to the game !</Message>
-        <Message>Guess that image keyword : { session.url }</Message>
+        <Message>Welcome to the game ! Guess that image keyword : { session.url }</Message>
       </Response>
     )
-  } else if (session.tries >= 5) {
+  } else if (session.tries >= 4) {
     save()
     return (
       <Response>
         <Message>PERDU ! 5 tentatives</Message>
       </Response>
     )
-  } else if (text === session.word) {
+  } else if (text.toLowerCase() === session.word.toLowerCase()) {
     save()
     return (
       <Response>
@@ -184,7 +182,7 @@ const GiphyGame = ({ text, session, save }) => {
     incrementTries();
     return (
       <Response>
-        <Message>Try again ({ session.tries + 1 } / 5) ! ¯\_(ツ)_/¯ </Message>
+        <Message>Try again ({ session.tries + 2 } / 5) ! ¯\_(ツ)_/¯ </Message>
       </Response>
     )
   }
@@ -290,6 +288,7 @@ makeSequence({
 })
 */
 
-http.createServer(app).listen(process.env.PORT || 1337, function () {
-  console.log("Express server listening on http://127.0.0.1:1337");
+const PORT = process.env.PORT || 1337
+http.createServer(app).listen(PORT, '0.0.0.0', function () {
+  console.log(`Express server listening on ${PORT}`);
 });
