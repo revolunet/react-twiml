@@ -2,7 +2,7 @@
 
 Render [Twilio Markup Language](https://www.twilio.com/docs/api/twiml) instructions from [React](https://facebook.github.io/react/).
 
-Useful for SMS and Voice automation via [Twilio webhooks](https://www.twilio.com/docs/api/ip-messaging/webhooks).
+Useful for SMS and Voice automation via [Twilio webhooks](https://www.twilio.com/docs/api/chat/webhooks).
 
 👉  You can play with the [Giphy game example](./examples/GiphyGame.js) by sending an SMS to `+33644640807`
 
@@ -42,5 +42,3 @@ The [Giphy game example](./examples/GiphyGame.js) shows how to handle a multi-st
 When rendering on the server, we cant rely on `setState` because we need a single, full render of the final state.
 
 Thus, we need to delay the component render (see the [Giphy game example](./examples/GiphyGame)).
-
-
