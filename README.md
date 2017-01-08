@@ -24,7 +24,7 @@ import { render, Response, Play, Say } from 'react-twiml'
 const SimpleVoice = ({ code }) => (
   <Response>
     <Play loop="3">https://api.twilio.com/cowbell.mp3</Play>
-    <Say voice="woman" language="en">Your top secret code is : { props.code }</Say>
+    <Say voice="woman" language="en">Your top secret code is : { code }</Say>
   </Response>
 )
 
